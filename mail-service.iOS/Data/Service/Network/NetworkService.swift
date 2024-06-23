@@ -69,6 +69,27 @@ final class NetworkService {
             }
             .eraseToAnyPublisher()
     }
+    
+    func login(user: UserAuthorizationModel) -> AnyPublisher<String, Error> {
+        let loginRequest = LoginRequest(
+            email: user.email + "@pmc-python.ru",
+            password: user.password
+            )
+            
+        
+            return requestWithoutToken(endpoint: "login", method: .post, parameters: loginRequest)
+                .tryMap { data in
+                    if let json = try? JSONSerialization.jsonObject(with: data, options: []) {
+                        print("Server response JSON: \(json)")
+                    } else {
+                        print("Failed to parse server response")
+                    }
+                    
+                    let response = try JSONDecoder().decode(LoginResponse.self, from: data)
+                    return response.token
+                }
+                .eraseToAnyPublisher()
+        }
 }
 
 struct RegistrationResponse: Decodable {
@@ -79,12 +100,11 @@ struct RegistrationResponse: Decodable {
     }
 }
 
-struct RegistrationRequest: Encodable {
-    let name: String
-    let surname: String
-    let birthday: String
-    let gender: String
-    let mail: String
-    let phoneNum: String
-    let password: String
+struct LoginResponse: Decodable {
+    let token: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case token = "Token"
+    }
 }
+

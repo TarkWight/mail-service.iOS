@@ -7,11 +7,16 @@
 
 import Combine
 
-class UserUseCase {
+final class UserUseCase {
     private var cancellables = Set<AnyCancellable>()
-
+    
     func register(user: UserRegistrationModel) -> AnyPublisher<String, Error> {
         return NetworkService.shared.register(user: user)
             .eraseToAnyPublisher()
     }
+
+    func login(user: UserAuthorizationModel) -> AnyPublisher<String, Error> {
+        return NetworkService.shared.login(user: user)
+               .eraseToAnyPublisher()
+       }
 }

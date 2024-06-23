@@ -16,3 +16,8 @@ struct UserRegistrationModel {
     var phoneNum: String = ""
     var password: String = ""
 }
+
+struct UserAuthorizationModel {
+    var email: String = ""
+    var password: String = ""
+}

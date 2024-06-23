@@ -13,7 +13,7 @@ struct mainApplication: App {
 
     var body: some Scene {
         WindowGroup {
-            RegistrationView()
+            AuthorizationView()
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
