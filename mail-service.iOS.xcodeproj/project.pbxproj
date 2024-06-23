@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0585B122C281277008F1431 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B112C281277008F1431 /* Requests.swift */; };
+		B0585B142C28135A008F1431 /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B132C28135A008F1431 /* AuthorizationViewModel.swift */; };
+		B0585B162C281366008F1431 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B152C281366008F1431 /* AuthorizationView.swift */; };
 		B06E3B632C22A6CE0093BAF0 /* mainApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E3B622C22A6CE0093BAF0 /* mainApplication.swift */; };
 		B06E3B652C22A6CE0093BAF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E3B642C22A6CE0093BAF0 /* ContentView.swift */; };
 		B06E3B672C22A6CF0093BAF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B06E3B662C22A6CF0093BAF0 /* Assets.xcassets */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B0585B112C281277008F1431 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		B0585B132C28135A008F1431 /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
+		B0585B152C281366008F1431 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		B06E3B5F2C22A6CE0093BAF0 /* mail-service.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mail-service.iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B06E3B622C22A6CE0093BAF0 /* mainApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainApplication.swift; sourceTree = "<group>"; };
 		B06E3B642C22A6CE0093BAF0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -134,6 +140,7 @@
 		B0780D942C27F23D0095F55D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B0585B132C28135A008F1431 /* AuthorizationViewModel.swift */,
 				B0780D952C27F2510095F55D /* RegistrationViewModel.swift */,
 			);
 			path = ViewModel;
@@ -143,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				B0780D982C27F2800095F55D /* RegistrationView.swift */,
+				B0585B152C281366008F1431 /* AuthorizationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				B0780DB42C27FD3F0095F55D /* NetworkService.swift */,
+				B0585B112C281277008F1431 /* Requests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -258,13 +267,16 @@
 			files = (
 				B0780D962C27F2510095F55D /* RegistrationViewModel.swift in Sources */,
 				B0780D9D2C27F2A90095F55D /* UserModel.swift in Sources */,
+				B0585B162C281366008F1431 /* AuthorizationView.swift in Sources */,
 				B0780DB52C27FD3F0095F55D /* NetworkService.swift in Sources */,
+				B0585B122C281277008F1431 /* Requests.swift in Sources */,
 				B06E3B6C2C22A6CF0093BAF0 /* Persistence.swift in Sources */,
 				B06E3B652C22A6CE0093BAF0 /* ContentView.swift in Sources */,
 				B0780DB82C2806D80095F55D /* UserUseCase.swift in Sources */,
 				B0780D992C27F2800095F55D /* RegistrationView.swift in Sources */,
 				B06E3B6F2C22A6CF0093BAF0 /* mail_service_iOS.xcdatamodeld in Sources */,
 				B06E3B632C22A6CE0093BAF0 /* mainApplication.swift in Sources */,
+				B0585B142C28135A008F1431 /* AuthorizationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
