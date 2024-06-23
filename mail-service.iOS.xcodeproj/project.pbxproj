@@ -23,6 +23,7 @@
 		B06E3B692C22A6CF0093BAF0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B06E3B6B2C22A6CF0093BAF0 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B06E3B6E2C22A6CF0093BAF0 /* mail_service_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mail_service_iOS.xcdatamodel; sourceTree = "<group>"; };
+		B0780D922C27F0FA0095F55D /* mail-service-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "mail-service-iOS-Info.plist"; path = "mail-service.iOS/Application/mail-service-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +56,8 @@
 		B06E3B612C22A6CE0093BAF0 /* mail-service.iOS */ = {
 			isa = PBXGroup;
 			children = (
-				B06E3B622C22A6CE0093BAF0 /* mainApplication.swift */,
-				B06E3B642C22A6CE0093BAF0 /* ContentView.swift */,
-				B06E3B662C22A6CF0093BAF0 /* Assets.xcassets */,
-				B06E3B6B2C22A6CF0093BAF0 /* Persistence.swift */,
-				B06E3B6D2C22A6CF0093BAF0 /* mail_service_iOS.xcdatamodeld */,
+				B0780D8F2C27F0250095F55D /* Data */,
+				B0780D8E2C27EFFF0095F55D /* Application */,
 				B06E3B682C22A6CF0093BAF0 /* Preview Content */,
 			);
 			path = "mail-service.iOS";
@@ -71,6 +69,42 @@
 				B06E3B692C22A6CF0093BAF0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B0780D8E2C27EFFF0095F55D /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B0780D922C27F0FA0095F55D /* mail-service-iOS-Info.plist */,
+				B06E3B622C22A6CE0093BAF0 /* mainApplication.swift */,
+				B06E3B662C22A6CF0093BAF0 /* Assets.xcassets */,
+				B06E3B642C22A6CE0093BAF0 /* ContentView.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		B0780D8F2C27F0250095F55D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B0780D902C27F0660095F55D /* Service */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B0780D902C27F0660095F55D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B0780D912C27F06E0095F55D /* CoreData */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B0780D912C27F06E0095F55D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B06E3B6B2C22A6CF0093BAF0 /* Persistence.swift */,
+				B06E3B6D2C22A6CF0093BAF0 /* mail_service_iOS.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +317,7 @@
 				DEVELOPMENT_TEAM = L4LS264DFA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "mail-service.iOS/Application/mail-service-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -312,6 +347,7 @@
 				DEVELOPMENT_TEAM = L4LS264DFA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "mail-service.iOS/Application/mail-service-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
