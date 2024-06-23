@@ -12,7 +12,7 @@ struct UserRegistrationModel {
     var surname: String = ""
     var birthday: String = ""
     var gender: String = ""
-    var mail: String = ""
+    var login: String = ""
     var phoneNum: String = ""
     var password: String = ""
 }
