@@ -16,12 +16,9 @@
 		B0780D962C27F2510095F55D /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780D952C27F2510095F55D /* RegistrationViewModel.swift */; };
 		B0780D992C27F2800095F55D /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780D982C27F2800095F55D /* RegistrationView.swift */; };
 		B0780D9D2C27F2A90095F55D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780D9C2C27F2A90095F55D /* UserModel.swift */; };
-		B0780DA12C27F3F70095F55D /* CombineAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780DA02C27F3F70095F55D /* CombineAPIClient.swift */; };
-		B0780DA52C27F4660095F55D /* JSONDecoder+APIDateDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780DA42C27F4660095F55D /* JSONDecoder+APIDateDecoding.swift */; };
-		B0780DA72C27F4860095F55D /* HTTPURLResponse+StatusProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780DA62C27F4860095F55D /* HTTPURLResponse+StatusProperty.swift */; };
-		B0780DA92C27F4960095F55D /* CombineAPISession+URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780DA82C27F4960095F55D /* CombineAPISession+URLSession.swift */; };
-		B0780DAB2C27F4AD0095F55D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780DAA2C27F4AD0095F55D /* APIError.swift */; };
-		B0780DAD2C27F4BC0095F55D /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780DAC2C27F4BC0095F55D /* HTTPStatusCode.swift */; };
+		B0780DB32C27FAB00095F55D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B0780DB22C27FAB00095F55D /* Alamofire */; };
+		B0780DB52C27FD3F0095F55D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780DB42C27FD3F0095F55D /* NetworkService.swift */; };
+		B0780DB82C2806D80095F55D /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780DB72C2806D70095F55D /* UserUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,12 +33,8 @@
 		B0780D952C27F2510095F55D /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		B0780D982C27F2800095F55D /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		B0780D9C2C27F2A90095F55D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		B0780DA02C27F3F70095F55D /* CombineAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineAPIClient.swift; sourceTree = "<group>"; };
-		B0780DA42C27F4660095F55D /* JSONDecoder+APIDateDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+APIDateDecoding.swift"; sourceTree = "<group>"; };
-		B0780DA62C27F4860095F55D /* HTTPURLResponse+StatusProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusProperty.swift"; sourceTree = "<group>"; };
-		B0780DA82C27F4960095F55D /* CombineAPISession+URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CombineAPISession+URLSession.swift"; sourceTree = "<group>"; };
-		B0780DAA2C27F4AD0095F55D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		B0780DAC2C27F4BC0095F55D /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
+		B0780DB42C27FD3F0095F55D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		B0780DB72C2806D70095F55D /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0780DB32C27FAB00095F55D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +150,7 @@
 		B0780D9A2C27F28F0095F55D /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				B0780DB62C2806CB0095F55D /* UseCase */,
 				B0780D9B2C27F29D0095F55D /* Model */,
 			);
 			path = Domain;
@@ -172,38 +167,17 @@
 		B0780D9E2C27F3C60095F55D /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B0780DAE2C27F54D0095F55D /* APIRequest */,
-				B0780DA22C27F4530095F55D /* Extensions */,
-				B0780D9F2C27F3D90095F55D /* APIClient */,
+				B0780DB42C27FD3F0095F55D /* NetworkService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		B0780D9F2C27F3D90095F55D /* APIClient */ = {
+		B0780DB62C2806CB0095F55D /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				B0780DA02C27F3F70095F55D /* CombineAPIClient.swift */,
-				B0780DAC2C27F4BC0095F55D /* HTTPStatusCode.swift */,
-				B0780DAA2C27F4AD0095F55D /* APIError.swift */,
+				B0780DB72C2806D70095F55D /* UserUseCase.swift */,
 			);
-			path = APIClient;
-			sourceTree = "<group>";
-		};
-		B0780DA22C27F4530095F55D /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				B0780DA42C27F4660095F55D /* JSONDecoder+APIDateDecoding.swift */,
-				B0780DA62C27F4860095F55D /* HTTPURLResponse+StatusProperty.swift */,
-				B0780DA82C27F4960095F55D /* CombineAPISession+URLSession.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		B0780DAE2C27F54D0095F55D /* APIRequest */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = APIRequest;
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +196,9 @@
 			dependencies = (
 			);
 			name = "mail-service.iOS";
+			packageProductDependencies = (
+				B0780DB22C27FAB00095F55D /* Alamofire */,
+			);
 			productName = "mail-service.iOS";
 			productReference = B06E3B5F2C22A6CE0093BAF0 /* mail-service.iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -250,6 +227,9 @@
 				Base,
 			);
 			mainGroup = B06E3B562C22A6CE0093BAF0;
+			packageReferences = (
+				B0780DB12C27FAB00095F55D /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = B06E3B602C22A6CE0093BAF0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -276,19 +256,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0780DA52C27F4660095F55D /* JSONDecoder+APIDateDecoding.swift in Sources */,
 				B0780D962C27F2510095F55D /* RegistrationViewModel.swift in Sources */,
 				B0780D9D2C27F2A90095F55D /* UserModel.swift in Sources */,
-				B0780DA92C27F4960095F55D /* CombineAPISession+URLSession.swift in Sources */,
+				B0780DB52C27FD3F0095F55D /* NetworkService.swift in Sources */,
 				B06E3B6C2C22A6CF0093BAF0 /* Persistence.swift in Sources */,
-				B0780DAB2C27F4AD0095F55D /* APIError.swift in Sources */,
-				B0780DAD2C27F4BC0095F55D /* HTTPStatusCode.swift in Sources */,
 				B06E3B652C22A6CE0093BAF0 /* ContentView.swift in Sources */,
-				B0780DA72C27F4860095F55D /* HTTPURLResponse+StatusProperty.swift in Sources */,
+				B0780DB82C2806D80095F55D /* UserUseCase.swift in Sources */,
 				B0780D992C27F2800095F55D /* RegistrationView.swift in Sources */,
 				B06E3B6F2C22A6CF0093BAF0 /* mail_service_iOS.xcdatamodeld in Sources */,
 				B06E3B632C22A6CE0093BAF0 /* mainApplication.swift in Sources */,
-				B0780DA12C27F3F70095F55D /* CombineAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +472,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B0780DB12C27FAB00095F55D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B0780DB22C27FAB00095F55D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0780DB12C27FAB00095F55D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		B06E3B6D2C22A6CF0093BAF0 /* mail_service_iOS.xcdatamodeld */ = {
