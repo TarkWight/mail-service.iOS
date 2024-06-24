@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RegistrationView: View {
     @StateObject private var viewModel = RegistrationViewModel()
+    @StateObject private var authManager = AuthManager()
+    @EnvironmentObject var coordinator: Coordinator
     
     var body: some View {
         VStack(spacing: 16) {
@@ -44,9 +46,25 @@ struct RegistrationView: View {
                     .foregroundColor(.green)
                     .padding(.top, 20)
             }
+            
+            HStack {
+                Text("Есть аккаунт?")
+                Button(action: {
+                    coordinator.replace(with: .authorization)
+                }) {
+                    Text("Войти")
+                        .foregroundColor(.blue)
+                }
+            }
+            .padding(.top, 10)
         }
         .padding(16)
         .navigationTitle("Регистрация")
+        .onReceive(viewModel.$isAuthenticated) { isAuthenticated in
+            if isAuthenticated {
+                self.authManager.auth()
+            }
+        }
     }
 }
 

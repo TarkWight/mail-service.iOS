@@ -13,9 +13,7 @@ struct mainApplication: App {
 
     var body: some Scene {
         WindowGroup {
-            AuthorizationView()
-//            ContentView()
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            CoordinatorView()
         }
     }
 }
