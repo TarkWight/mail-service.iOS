@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AuthorizationView: View {
     @StateObject private var viewModel = AuthorizationViewModel()
+    @StateObject private var authManager = AuthManager()
+    @EnvironmentObject var coordinator: Coordinator
     
     var body: some View {
         VStack(spacing: 16) {
@@ -42,9 +44,25 @@ struct AuthorizationView: View {
                     .foregroundColor(.red)
                     .padding(.top, 20)
             }
+            
+            HStack {
+                Text("Нет аккаунта?")
+                Button(action: {
+                    coordinator.replace(with: .registration)
+                }) {
+                    Text("Создать")
+                        .foregroundColor(.blue)
+                }
+            }
+            .padding(.top, 10)
         }
         .padding(16)
         .navigationTitle("Вход")
+        .onReceive(viewModel.$isAuthenticated) { isAuthenticated in
+            if isAuthenticated {
+                self.authManager.auth()
+            }
+        }
     }
 }
 
@@ -53,4 +71,3 @@ struct AuthorizationView_Previews: PreviewProvider {
         AuthorizationView()
     }
 }
-

@@ -10,6 +10,9 @@
 		B0585B122C281277008F1431 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B112C281277008F1431 /* Requests.swift */; };
 		B0585B142C28135A008F1431 /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B132C28135A008F1431 /* AuthorizationViewModel.swift */; };
 		B0585B162C281366008F1431 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B152C281366008F1431 /* AuthorizationView.swift */; };
+		B0585B192C2817FD008F1431 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B182C2817FD008F1431 /* Coordinator.swift */; };
+		B0585B1B2C281A05008F1431 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B1A2C281A05008F1431 /* CoordinatorView.swift */; };
+		B0585B1D2C281AD8008F1431 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B1C2C281AD8008F1431 /* AuthManager.swift */; };
 		B06E3B632C22A6CE0093BAF0 /* mainApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E3B622C22A6CE0093BAF0 /* mainApplication.swift */; };
 		B06E3B652C22A6CE0093BAF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E3B642C22A6CE0093BAF0 /* ContentView.swift */; };
 		B06E3B672C22A6CF0093BAF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B06E3B662C22A6CF0093BAF0 /* Assets.xcassets */; };
@@ -28,6 +31,9 @@
 		B0585B112C281277008F1431 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		B0585B132C28135A008F1431 /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
 		B0585B152C281366008F1431 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		B0585B182C2817FD008F1431 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B0585B1A2C281A05008F1431 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
+		B0585B1C2C281AD8008F1431 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		B06E3B5F2C22A6CE0093BAF0 /* mail-service.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mail-service.iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B06E3B622C22A6CE0093BAF0 /* mainApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainApplication.swift; sourceTree = "<group>"; };
 		B06E3B642C22A6CE0093BAF0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B0585B172C2817F3008F1431 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B0585B182C2817FD008F1431 /* Coordinator.swift */,
+				B0585B1A2C281A05008F1431 /* CoordinatorView.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		B06E3B562C22A6CE0093BAF0 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +146,7 @@
 		B0780D932C27F2350095F55D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				B0585B172C2817F3008F1431 /* Coordinator */,
 				B0780D972C27F2650095F55D /* View */,
 				B0780D942C27F23D0095F55D /* ViewModel */,
 			);
@@ -140,8 +156,8 @@
 		B0780D942C27F23D0095F55D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				B0585B132C28135A008F1431 /* AuthorizationViewModel.swift */,
 				B0780D952C27F2510095F55D /* RegistrationViewModel.swift */,
+				B0585B132C28135A008F1431 /* AuthorizationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -177,6 +193,7 @@
 			children = (
 				B0780DB42C27FD3F0095F55D /* NetworkService.swift */,
 				B0585B112C281277008F1431 /* Requests.swift */,
+				B0585B1C2C281AD8008F1431 /* AuthManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -266,7 +283,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0780D962C27F2510095F55D /* RegistrationViewModel.swift in Sources */,
+				B0585B1B2C281A05008F1431 /* CoordinatorView.swift in Sources */,
 				B0780D9D2C27F2A90095F55D /* UserModel.swift in Sources */,
+				B0585B192C2817FD008F1431 /* Coordinator.swift in Sources */,
+				B0585B1D2C281AD8008F1431 /* AuthManager.swift in Sources */,
 				B0585B162C281366008F1431 /* AuthorizationView.swift in Sources */,
 				B0780DB52C27FD3F0095F55D /* NetworkService.swift in Sources */,
 				B0585B122C281277008F1431 /* Requests.swift in Sources */,
