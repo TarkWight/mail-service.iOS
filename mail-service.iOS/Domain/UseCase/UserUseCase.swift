@@ -6,17 +6,29 @@
 //
 
 import Combine
+import Alamofire
 
 final class UserUseCase {
     private var cancellables = Set<AnyCancellable>()
+    private let networkService = NetworkService.shared
     
     func register(user: UserRegistrationModel) -> AnyPublisher<String, Error> {
-        return NetworkService.shared.register(user: user)
+        networkService.register(user: user)
             .eraseToAnyPublisher()
     }
 
     func login(user: UserAuthorizationModel) -> AnyPublisher<String, Error> {
-        return NetworkService.shared.login(user: user)
-               .eraseToAnyPublisher()
-       }
+        networkService.login(user: user)
+            .eraseToAnyPublisher()
+    }
+    
+    func logout() -> AnyPublisher<Void, Error> {
+        networkService.logout()
+            .eraseToAnyPublisher()
+    }
+    
+    func fetchUserProfile() -> AnyPublisher<UserProfile, AFError> {
+            networkService.fetchUserProfile()
+                .eraseToAnyPublisher()
+        }
 }

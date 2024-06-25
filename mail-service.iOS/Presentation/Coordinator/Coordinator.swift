@@ -18,7 +18,7 @@ protocol CoordinatorProtocol {
 }
 
 enum Page: String, Identifiable {
-    case registration, authorization
+    case registration, authorization, tabBar, profile
     
     var id: String {
         self.rawValue
@@ -66,6 +66,7 @@ class Coordinator: ObservableObject, CoordinatorProtocol {
         self.fullScreenCover = fullScreenCover
     }
     
+    
     @ViewBuilder
     func build(page: Page) -> some View {
         switch page {
@@ -73,6 +74,10 @@ class Coordinator: ObservableObject, CoordinatorProtocol {
             RegistrationView()
         case .authorization:
             AuthorizationView()
+        case .tabBar:
+            MainTabView()
+        case .profile:
+            ProfileView()
         }
     }
 }

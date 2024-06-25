@@ -13,18 +13,23 @@
 		B0585B192C2817FD008F1431 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B182C2817FD008F1431 /* Coordinator.swift */; };
 		B0585B1B2C281A05008F1431 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B1A2C281A05008F1431 /* CoordinatorView.swift */; };
 		B0585B1D2C281AD8008F1431 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B1C2C281AD8008F1431 /* AuthManager.swift */; };
+		B0585B1F2C29160F008F1431 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B1E2C29160F008F1431 /* MainTabView.swift */; };
+		B0585B212C29163E008F1431 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B202C29163E008F1431 /* ProfileView.swift */; };
+		B0585B232C2916C9008F1431 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B222C2916C9008F1431 /* ProfileViewModel.swift */; };
+		B0585B252C29180E008F1431 /* UserProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B242C29180E008F1431 /* UserProfileEntity.swift */; };
+		B0585B272C2922CD008F1431 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0585B262C2922CD008F1431 /* SettingsView.swift */; };
 		B06E3B632C22A6CE0093BAF0 /* mainApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E3B622C22A6CE0093BAF0 /* mainApplication.swift */; };
 		B06E3B652C22A6CE0093BAF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E3B642C22A6CE0093BAF0 /* ContentView.swift */; };
 		B06E3B672C22A6CF0093BAF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B06E3B662C22A6CF0093BAF0 /* Assets.xcassets */; };
 		B06E3B6A2C22A6CF0093BAF0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B06E3B692C22A6CF0093BAF0 /* Preview Assets.xcassets */; };
-		B06E3B6C2C22A6CF0093BAF0 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E3B6B2C22A6CF0093BAF0 /* Persistence.swift */; };
-		B06E3B6F2C22A6CF0093BAF0 /* mail_service_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B06E3B6D2C22A6CF0093BAF0 /* mail_service_iOS.xcdatamodeld */; };
+		B06E3B6C2C22A6CF0093BAF0 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E3B6B2C22A6CF0093BAF0 /* CoreDataService.swift */; };
 		B0780D962C27F2510095F55D /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780D952C27F2510095F55D /* RegistrationViewModel.swift */; };
 		B0780D992C27F2800095F55D /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780D982C27F2800095F55D /* RegistrationView.swift */; };
 		B0780D9D2C27F2A90095F55D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780D9C2C27F2A90095F55D /* UserModel.swift */; };
 		B0780DB32C27FAB00095F55D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B0780DB22C27FAB00095F55D /* Alamofire */; };
 		B0780DB52C27FD3F0095F55D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780DB42C27FD3F0095F55D /* NetworkService.swift */; };
 		B0780DB82C2806D80095F55D /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780DB72C2806D70095F55D /* UserUseCase.swift */; };
+		B0C7F3922C2ADEF300F6E235 /* mail_service_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0C7F3902C2ADEF300F6E235 /* mail_service_iOS.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,19 +39,24 @@
 		B0585B182C2817FD008F1431 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B0585B1A2C281A05008F1431 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		B0585B1C2C281AD8008F1431 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		B0585B1E2C29160F008F1431 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		B0585B202C29163E008F1431 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B0585B222C2916C9008F1431 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		B0585B242C29180E008F1431 /* UserProfileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileEntity.swift; sourceTree = "<group>"; };
+		B0585B262C2922CD008F1431 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B06E3B5F2C22A6CE0093BAF0 /* mail-service.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mail-service.iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B06E3B622C22A6CE0093BAF0 /* mainApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainApplication.swift; sourceTree = "<group>"; };
 		B06E3B642C22A6CE0093BAF0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B06E3B662C22A6CF0093BAF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B06E3B692C22A6CF0093BAF0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B06E3B6B2C22A6CF0093BAF0 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		B06E3B6E2C22A6CF0093BAF0 /* mail_service_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mail_service_iOS.xcdatamodel; sourceTree = "<group>"; };
+		B06E3B6B2C22A6CF0093BAF0 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		B0780D922C27F0FA0095F55D /* mail-service-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "mail-service-iOS-Info.plist"; path = "mail-service.iOS/Application/mail-service-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B0780D952C27F2510095F55D /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		B0780D982C27F2800095F55D /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		B0780D9C2C27F2A90095F55D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		B0780DB42C27FD3F0095F55D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B0780DB72C2806D70095F55D /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
+		B0C7F3912C2ADEF300F6E235 /* mail_service_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mail_service_iOS.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,8 +147,9 @@
 		B0780D912C27F06E0095F55D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				B06E3B6B2C22A6CF0093BAF0 /* Persistence.swift */,
-				B06E3B6D2C22A6CF0093BAF0 /* mail_service_iOS.xcdatamodeld */,
+				B06E3B6B2C22A6CF0093BAF0 /* CoreDataService.swift */,
+				B0585B242C29180E008F1431 /* UserProfileEntity.swift */,
+				B0C7F3902C2ADEF300F6E235 /* mail_service_iOS.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -158,6 +169,7 @@
 			children = (
 				B0780D952C27F2510095F55D /* RegistrationViewModel.swift */,
 				B0585B132C28135A008F1431 /* AuthorizationViewModel.swift */,
+				B0585B222C2916C9008F1431 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -167,6 +179,9 @@
 			children = (
 				B0780D982C27F2800095F55D /* RegistrationView.swift */,
 				B0585B152C281366008F1431 /* AuthorizationView.swift */,
+				B0585B1E2C29160F008F1431 /* MainTabView.swift */,
+				B0585B202C29163E008F1431 /* ProfileView.swift */,
+				B0585B262C2922CD008F1431 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,16 +300,21 @@
 				B0780D962C27F2510095F55D /* RegistrationViewModel.swift in Sources */,
 				B0585B1B2C281A05008F1431 /* CoordinatorView.swift in Sources */,
 				B0780D9D2C27F2A90095F55D /* UserModel.swift in Sources */,
+				B0585B1F2C29160F008F1431 /* MainTabView.swift in Sources */,
+				B0585B252C29180E008F1431 /* UserProfileEntity.swift in Sources */,
+				B0585B272C2922CD008F1431 /* SettingsView.swift in Sources */,
+				B0C7F3922C2ADEF300F6E235 /* mail_service_iOS.xcdatamodeld in Sources */,
 				B0585B192C2817FD008F1431 /* Coordinator.swift in Sources */,
 				B0585B1D2C281AD8008F1431 /* AuthManager.swift in Sources */,
 				B0585B162C281366008F1431 /* AuthorizationView.swift in Sources */,
 				B0780DB52C27FD3F0095F55D /* NetworkService.swift in Sources */,
 				B0585B122C281277008F1431 /* Requests.swift in Sources */,
-				B06E3B6C2C22A6CF0093BAF0 /* Persistence.swift in Sources */,
+				B0585B212C29163E008F1431 /* ProfileView.swift in Sources */,
+				B06E3B6C2C22A6CF0093BAF0 /* CoreDataService.swift in Sources */,
 				B06E3B652C22A6CE0093BAF0 /* ContentView.swift in Sources */,
+				B0585B232C2916C9008F1431 /* ProfileViewModel.swift in Sources */,
 				B0780DB82C2806D80095F55D /* UserUseCase.swift in Sources */,
 				B0780D992C27F2800095F55D /* RegistrationView.swift in Sources */,
-				B06E3B6F2C22A6CF0093BAF0 /* mail_service_iOS.xcdatamodeld in Sources */,
 				B06E3B632C22A6CE0093BAF0 /* mainApplication.swift in Sources */,
 				B0585B142C28135A008F1431 /* AuthorizationViewModel.swift in Sources */,
 			);
@@ -525,12 +545,12 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		B06E3B6D2C22A6CF0093BAF0 /* mail_service_iOS.xcdatamodeld */ = {
+		B0C7F3902C2ADEF300F6E235 /* mail_service_iOS.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B06E3B6E2C22A6CF0093BAF0 /* mail_service_iOS.xcdatamodel */,
+				B0C7F3912C2ADEF300F6E235 /* mail_service_iOS.xcdatamodel */,
 			);
-			currentVersion = B06E3B6E2C22A6CF0093BAF0 /* mail_service_iOS.xcdatamodel */;
+			currentVersion = B0C7F3912C2ADEF300F6E235 /* mail_service_iOS.xcdatamodel */;
 			path = mail_service_iOS.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
