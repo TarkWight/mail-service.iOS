@@ -23,7 +23,7 @@ struct CoordinatorView: View {
     
     private func pageSelector() -> Page {
         print(authManager.isAuthenticated)
-        return authManager.isAuthenticated ? .registration : .authorization
+        return authManager.isAuthenticated ? .tabBar : .authorization
     }
 }
 

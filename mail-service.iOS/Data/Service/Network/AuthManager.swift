@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import Combine
 
 final class AuthManager: ObservableObject {
+    var cancellables = Set<AnyCancellable>()
     private let authKey = "isAuthenticated"
     
     @Published var isAuthenticated: Bool {

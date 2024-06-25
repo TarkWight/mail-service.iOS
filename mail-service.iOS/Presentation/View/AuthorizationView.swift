@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct AuthorizationView: View {
     @StateObject private var viewModel = AuthorizationViewModel()
@@ -37,6 +38,10 @@ struct AuthorizationView: View {
                 Text("Вход выполнен успешно!")
                     .foregroundColor(.green)
                     .padding(.top, 20)
+                    .onAppear {
+                        self.authManager.auth()
+                        coordinator.replace(with: .tabBar)
+                    }
             }
             
             if let errorMessage = viewModel.errorMessage {

@@ -9,11 +9,14 @@ import SwiftUI
 
 @main
 struct mainApplication: App {
-    let persistenceController = PersistenceController.shared
+    @StateObject private var authManager = AuthManager()
+       @StateObject private var coordinator = Coordinator()
 
-    var body: some Scene {
-        WindowGroup {
-            CoordinatorView()
-        }
-    }
+      var body: some Scene {
+          WindowGroup {
+              CoordinatorView()
+                  .environmentObject(authManager)
+                  .environmentObject(coordinator)
+          }
+      }
 }
