@@ -10,22 +10,25 @@ import SwiftUI
 struct ChatView: View {
     @ObservedObject var viewModel = ChatViewModel()
     @EnvironmentObject var coordinator: Coordinator
-
+    
     var body: some View {
         NavigationView {
             VStack {
                 List(viewModel.chats) { chat in
-                    Text(chat.email)
-                        .onTapGesture {
-                            print("Chat tapped: \(chat.email)")
-                        }
+                    Button(action: {
+                        let themesViewModel = ThemesViewModel(interlocutor: chat.email)
+                        coordinator.push(.themes)
+                        coordinator.inject(viewModel: themesViewModel)
+                    }) {
+                        Text(chat.email)
+                    }
                 }
-
+                
                 Spacer()
-
+                
                 HStack {
                     Spacer()
-
+                    
                     Button(action: {
                         coordinator.push(.createChat)
                     }) {

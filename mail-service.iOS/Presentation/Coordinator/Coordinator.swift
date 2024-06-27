@@ -15,7 +15,7 @@ protocol CoordinatorProtocol {
 }
 
 enum Page: String, Identifiable {
-    case registration, authorization, tabBar, profile, chatList, createChat
+    case registration, authorization, tabBar, profile, chatList, createChat, themes
 
     var id: String {
         self.rawValue
@@ -41,28 +41,34 @@ enum FullScreenCover: String, Identifiable {
 class Coordinator: ObservableObject, CoordinatorProtocol {
     @Published var path = NavigationPath()
     @Published var fullScreenCover: FullScreenCover?
-
+    @Published var themesViewModel: ThemesViewModel?
+    private var dataStore: [Page: Any] = [:]
+    
     func push(_ page: Page) {
         path.append(page)
     }
-
+    
     func replace(with page: Page) {
         path = NavigationPath()
         path.append(page)
     }
-
+    
     func pop() {
         path.removeLast()
     }
-
+    
     func popToRoot() {
         path.removeLast(path.count)
     }
-
+    
     func present(fullScreenCover: FullScreenCover) {
         self.fullScreenCover = fullScreenCover
     }
-
+    
+    func inject(viewModel: ThemesViewModel) {
+        self.themesViewModel = viewModel
+    }
+    
     @ViewBuilder
     func build(page: Page) -> some View {
         switch page {
@@ -78,6 +84,10 @@ class Coordinator: ObservableObject, CoordinatorProtocol {
             ChatView()
         case .createChat:
             CreateChatView()
+        case .themes:
+            if let viewModel = themesViewModel {
+                ThemesView().environmentObject(viewModel)
+            }
         }
     }
 }

@@ -30,6 +30,7 @@ final class NetworkService {
         self.token = token
     }
     
+    // MARK: - Request
     private func requestWithoutToken<T: Encodable>(endpoint: String, method: HTTPMethod, parameters: T) -> AnyPublisher<Data, AFError> {
         let url = baseURL + endpoint
         
@@ -57,7 +58,7 @@ final class NetworkService {
             .eraseToAnyPublisher()
     }
     
-    
+    // MARK: - Auth
     func register(user: UserRegistrationModel) -> AnyPublisher<String, Error> {
         let registrationRequest = RegistrationRequest(
             name: user.name,
@@ -126,17 +127,18 @@ final class NetworkService {
             .eraseToAnyPublisher()
     }
     
+    // MARK: - User Profile
     func fetchUserProfile() -> AnyPublisher<UserProfile, AFError> {
         guard let token = token else {
             fatalError("Token is not set")
         }
-
+        
         let url = baseURL + "users/me"
         let headers: HTTPHeaders = [
             "Authorization": "Bearer \(token)"
         ]
         print("Sending fetch user profile request to \(url) with headers: \(headers)")
-
+        
         return AF.request(url, headers: headers)
             .validate()
             .publishDecodable(type: UserProfile.self)
@@ -157,43 +159,102 @@ final class NetworkService {
             })
             .eraseToAnyPublisher()
     }
-
+    
+    // MARK: - Chats
     func fetchChats() -> AnyPublisher<[getChat], AFError> {
-            guard let token = token else {
-                fatalError("Token is not set")
-            }
-            
-            let url = baseURL + "get_my_chats"
-            let headers: HTTPHeaders = [
-                "Authorization": "Bearer \(token)"
-            ]
-            
-            return AF.request(url, headers: headers)
-                .validate()
-                .publishDecodable(type: ChatsResponse.self)
-                .tryMap { response in
-                    guard let value = response.value else {
-                        throw AFError.responseValidationFailed(reason: .dataFileNil)
-                    }
-                    return value.chats.enumerated().map { getChat(id: $0.offset, email: $0.element) }
-                }
-                .handleEvents(receiveOutput: { chats in
-                    print("Received chats from server: \(chats)")
-                })
-                .mapError { $0 as! AFError }
-                .eraseToAnyPublisher()
+        guard let token = token else {
+            fatalError("Token is not set")
         }
-
+        
+        let url = baseURL + "get_my_chats"
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(token)"
+        ]
+        
+        return AF.request(url, headers: headers)
+            .validate()
+            .publishDecodable(type: ChatsResponse.self)
+            .tryMap { response in
+                guard let value = response.value else {
+                    throw AFError.responseValidationFailed(reason: .dataFileNil)
+                }
+                return value.chats.enumerated().map { getChat(id: $0.offset, email: $0.element) }
+            }
+            .handleEvents(receiveOutput: { chats in
+                print("Received chats from server: \(chats)")
+            })
+            .mapError { $0 as! AFError }
+            .eraseToAnyPublisher()
+    }
+    
     func createChat(parameters: CreateChatRequest) -> AnyPublisher<Void, AFError> {
-           return requestWithToken(endpoint: "send", method: .post, parameters: parameters)
-               .map { _ in () }
-               .eraseToAnyPublisher()
-       }
+        return requestWithToken(endpoint: "send", method: .post, parameters: parameters)
+            .map { _ in () }
+            .eraseToAnyPublisher()
+    }
+    
+    func fetchThemes(interlocutor: String) -> AnyPublisher<[String], AFError> {
+          guard let token = token else {
+              fatalError("Token is not set")
+          }
+          
+          let url = baseURL + "get_themes_of_chat/\(interlocutor)"
+          let headers: HTTPHeaders = [
+              "Authorization": "Bearer \(token)"
+          ]
+          
+          print("Fetching themes from URL: \(url) with headers: \(headers)")
+
+          return AF.request(url, headers: headers)
+              .validate()
+              .publishDecodable(type: ThemesResponse.self)
+              .tryMap { response in
+                  if let error = response.error {
+                      print("Request failed with error: \(error)")
+                      throw error
+                  }
+                  
+                  guard let value = response.value else {
+                      print("Response value is nil: \(response)")
+                      throw AFError.responseValidationFailed(reason: .dataFileNil)
+                  }
+                  
+                  print("Received themes: \(value.themes)")
+                  return value.themes
+              }
+              .mapError { error in
+                  print("Mapping error: \(error)")
+                  return error as! AFError
+              }
+              .eraseToAnyPublisher()
+      }
+//    func fetchThemes(interlocutor: String) -> AnyPublisher<[String], AFError> {
+//        guard let token = token else {
+//            fatalError("Token is not set")
+//        }
+//        
+//        let url = baseURL + "get_themes_of_chat/\(interlocutor)"
+//        let headers: HTTPHeaders = [
+//            "Authorization": "Bearer \(token)"
+//        ]
+//        
+//        return AF.request(url, headers: headers)
+//            .validate()
+//            .publishDecodable(type: ThemesResponse.self)
+//            .tryMap { response in
+//                guard let value = response.value else {
+//                    throw AFError.responseValidationFailed(reason: .dataFileNil)
+//                }
+//                return value.themes
+//            }
+//            .mapError { $0 as! AFError }
+//            .eraseToAnyPublisher()
+//    }
 }
 
 struct RegistrationResponse: Decodable {
     let token: String
-
+    
     private enum CodingKeys: String, CodingKey {
         case token = "Token"
     }

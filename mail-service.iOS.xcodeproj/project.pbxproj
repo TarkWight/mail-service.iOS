@@ -28,6 +28,9 @@
 		B0780DB32C27FAB00095F55D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B0780DB22C27FAB00095F55D /* Alamofire */; };
 		B0780DB52C27FD3F0095F55D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780DB42C27FD3F0095F55D /* NetworkService.swift */; };
 		B0780DB82C2806D80095F55D /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0780DB72C2806D70095F55D /* UserUseCase.swift */; };
+		B0A507092C2D1CFE00E1E214 /* ChatUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A507082C2D1CFE00E1E214 /* ChatUseCase.swift */; };
+		B0A5070B2C2D1D2100E1E214 /* ThemesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5070A2C2D1D2100E1E214 /* ThemesViewModel.swift */; };
+		B0A5070D2C2D1D6800E1E214 /* ThemesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5070C2C2D1D6800E1E214 /* ThemesView.swift */; };
 		B0C7F3922C2ADEF300F6E235 /* mail_service_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0C7F3902C2ADEF300F6E235 /* mail_service_iOS.xcdatamodeld */; };
 		B0C7F3C12C2B155E00F6E235 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7F3C02C2B155E00F6E235 /* ChatModel.swift */; };
 		B0C7F3C42C2B1AAC00F6E235 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7F3C32C2B1AAC00F6E235 /* ChatViewModel.swift */; };
@@ -58,6 +61,9 @@
 		B0780D9C2C27F2A90095F55D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		B0780DB42C27FD3F0095F55D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B0780DB72C2806D70095F55D /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
+		B0A507082C2D1CFE00E1E214 /* ChatUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUseCase.swift; sourceTree = "<group>"; };
+		B0A5070A2C2D1D2100E1E214 /* ThemesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewModel.swift; sourceTree = "<group>"; };
+		B0A5070C2C2D1D6800E1E214 /* ThemesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesView.swift; sourceTree = "<group>"; };
 		B0C7F3912C2ADEF300F6E235 /* mail_service_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mail_service_iOS.xcdatamodel; sourceTree = "<group>"; };
 		B0C7F3C02C2B155E00F6E235 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		B0C7F3C32C2B1AAC00F6E235 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
@@ -176,6 +182,7 @@
 				B0585B132C28135A008F1431 /* AuthorizationViewModel.swift */,
 				B0585B222C2916C9008F1431 /* ProfileViewModel.swift */,
 				B0C7F3C32C2B1AAC00F6E235 /* ChatViewModel.swift */,
+				B0A5070A2C2D1D2100E1E214 /* ThemesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -190,6 +197,7 @@
 				B0585B262C2922CD008F1431 /* SettingsView.swift */,
 				B0C7F3C52C2B1CD000F6E235 /* ChatView.swift */,
 				B0C7F3C72C2B1D8000F6E235 /* CreateChatView.swift */,
+				B0A5070C2C2D1D6800E1E214 /* ThemesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				B0780DB72C2806D70095F55D /* UserUseCase.swift */,
+				B0A507082C2D1CFE00E1E214 /* ChatUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -311,15 +320,18 @@
 				B0585B1B2C281A05008F1431 /* CoordinatorView.swift in Sources */,
 				B0780D9D2C27F2A90095F55D /* UserModel.swift in Sources */,
 				B0C7F3C82C2B1D8000F6E235 /* CreateChatView.swift in Sources */,
+				B0A507092C2D1CFE00E1E214 /* ChatUseCase.swift in Sources */,
 				B0C7F3C62C2B1CD000F6E235 /* ChatView.swift in Sources */,
 				B0585B1F2C29160F008F1431 /* MainTabView.swift in Sources */,
 				B0585B272C2922CD008F1431 /* SettingsView.swift in Sources */,
 				B0C7F3922C2ADEF300F6E235 /* mail_service_iOS.xcdatamodeld in Sources */,
+				B0A5070D2C2D1D6800E1E214 /* ThemesView.swift in Sources */,
 				B0585B192C2817FD008F1431 /* Coordinator.swift in Sources */,
 				B0585B1D2C281AD8008F1431 /* AuthManager.swift in Sources */,
 				B0585B162C281366008F1431 /* AuthorizationView.swift in Sources */,
 				B0780DB52C27FD3F0095F55D /* NetworkService.swift in Sources */,
 				B0585B122C281277008F1431 /* Requests.swift in Sources */,
+				B0A5070B2C2D1D2100E1E214 /* ThemesViewModel.swift in Sources */,
 				B0585B212C29163E008F1431 /* ProfileView.swift in Sources */,
 				B06E3B6C2C22A6CF0093BAF0 /* CoreDataService.swift in Sources */,
 				B06E3B652C22A6CE0093BAF0 /* ContentView.swift in Sources */,

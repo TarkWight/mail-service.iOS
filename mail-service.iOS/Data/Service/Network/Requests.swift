@@ -34,3 +34,7 @@ struct CreateChatRequest: Encodable {
 struct ChatsResponse: Decodable {
     let chats: [String]
 }
+
+struct ThemesResponse: Decodable {
+    let themes: [String]
+}
