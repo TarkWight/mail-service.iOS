@@ -3,7 +3,7 @@ import CoreData
 
 final class CoreDataService {
     static let shared = CoreDataService()
-
+    
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "mail_service_iOS")
         container.loadPersistentStores { description, error in
@@ -13,7 +13,7 @@ final class CoreDataService {
         }
         return container
     }()
-
+    
     func fetchUserProfile() -> UserProfile? {
         let request: NSFetchRequest<UserProfileEntity> = UserProfileEntity.fetchRequest()
         let context = persistentContainer.viewContext
@@ -50,7 +50,7 @@ final class CoreDataService {
             return nil
         }
     }
-
+    
     func saveUserProfile(_ profile: UserProfile) {
         let context = persistentContainer.viewContext
         context.perform {
@@ -63,7 +63,7 @@ final class CoreDataService {
             userProfileEntity.login = profile.login
             userProfileEntity.phoneNum = profile.phoneNum
             userProfileEntity.avatar = profile.avatar
-
+            
             do {
                 try context.save()
                 print("UserProfile saved successfully")
@@ -72,4 +72,5 @@ final class CoreDataService {
             }
         }
     }
+    
 }

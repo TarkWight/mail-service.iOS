@@ -12,6 +12,7 @@ final class AuthorizationViewModel: ObservableObject {
     @Published var isAuthenticated = false
     @Published var userAuthorizationModel = UserAuthorizationModel()
     @Published var errorMessage: String?
+    @Published var authManager = AuthManager()
     private var cancellables = Set<AnyCancellable>()
     private let userUseCase = UserUseCase()
 
@@ -28,6 +29,7 @@ final class AuthorizationViewModel: ObservableObject {
             }, receiveValue: { token in
                 NetworkService.shared.setToken(token)
                 self.isAuthenticated = true
+                self.authManager.isAuthenticated = true
                 self.errorMessage = nil
             })
             .store(in: &cancellables)

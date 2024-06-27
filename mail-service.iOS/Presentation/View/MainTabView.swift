@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @StateObject private var settingsViewModel = SettingsViewModel()
+
     var body: some View {
         TabView {
             ProfileView()
@@ -17,20 +19,22 @@ struct MainTabView: View {
                 }
                 .tag(0)
             
-            Text("Chats")
+            ChatView()
                 .tabItem {
                     Image(systemName: "message")
                     Text("Chats")
                 }
                 .tag(1)
             
-            SettingsView()
+            SettingsView(viewModel: settingsViewModel) // Передача viewModel в SettingsView
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("Settings")
                 }
                 .tag(2)
         }
+        .navigationBarBackButtonHidden(true) // Скрыть кнопку "Назад"
+        .navigationBarHidden(true) // Скрыть весь навигационный бар
     }
 }
 

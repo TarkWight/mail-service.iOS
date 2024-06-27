@@ -22,16 +22,15 @@ struct UserAuthorizationModel {
     var password: String = ""
 }
 
-
 struct UserProfile: Identifiable, Decodable {
     let id: Int
-    let name: String
-    let surname: String
-    let birthday: String
-    let gender: String
-    let login: String
-    let phoneNum: String?
-    let avatar: String?
+    var name: String
+    var surname: String
+    var birthday: String
+    var gender: String
+    var login: String
+    var phoneNum: String?
+    var avatar: String?
     
     private enum CodingKeys: String, CodingKey {
         case id

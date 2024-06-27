@@ -47,19 +47,10 @@ struct RegistrationView: View {
                     .padding(.top, 20)
             }
             
-            HStack {
-                Text("Есть аккаунт?")
-                Button(action: {
-                    coordinator.replace(with: .authorization)
-                }) {
-                    Text("Войти")
-                        .foregroundColor(.blue)
-                }
-            }
-            .padding(.top, 10)
         }
         .padding(16)
         .navigationTitle("Регистрация")
+        .navigationBarBackButtonHidden(true)
         .onReceive(viewModel.$isAuthenticated) { isAuthenticated in
             if isAuthenticated {
                 self.authManager.auth()
