@@ -11,7 +11,7 @@ import Alamofire
 final class UserUseCase {
     private var cancellables = Set<AnyCancellable>()
     private let networkService = NetworkService.shared
-    
+    private let authManager = AuthManager()
     func register(user: UserRegistrationModel) -> AnyPublisher<String, Error> {
         networkService.register(user: user)
             .eraseToAnyPublisher()
@@ -25,6 +25,7 @@ final class UserUseCase {
     func logout() -> AnyPublisher<Void, Error> {
         networkService.logout()
             .eraseToAnyPublisher()
+      
     }
     
     func fetchUserProfile() -> AnyPublisher<UserProfile, AFError> {
