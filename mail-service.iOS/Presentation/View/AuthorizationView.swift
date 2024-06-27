@@ -54,6 +54,7 @@ struct AuthorizationView: View {
                 Text("Нет аккаунта?")
                 Button(action: {
                     coordinator.replace(with: .registration)
+                    
                 }) {
                     Text("Создать")
                         .foregroundColor(.blue)
@@ -63,6 +64,7 @@ struct AuthorizationView: View {
         }
         .padding(16)
         .navigationTitle("Вход")
+        .navigationBarBackButtonHidden(true)
         .onReceive(viewModel.$isAuthenticated) { isAuthenticated in
             if isAuthenticated {
                 self.authManager.auth()

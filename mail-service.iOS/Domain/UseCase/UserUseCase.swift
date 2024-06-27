@@ -16,21 +16,23 @@ final class UserUseCase {
         networkService.register(user: user)
             .eraseToAnyPublisher()
     }
-
+    
     func login(user: UserAuthorizationModel) -> AnyPublisher<String, Error> {
         networkService.login(user: user)
             .eraseToAnyPublisher()
     }
     
-    func logout() -> AnyPublisher<Void, Error> {
-        networkService.logout()
-            .eraseToAnyPublisher()
-      
+    func logout() {
+        authManager.logout()
     }
     
     func fetchUserProfile() -> AnyPublisher<UserProfile, AFError> {
-            networkService.fetchUserProfile()
-                .eraseToAnyPublisher()
-        }
+        networkService.fetchUserProfile()
+            .eraseToAnyPublisher()
+    }
+    
+    func editProfile(request: EditProfileRequest) -> AnyPublisher<Void, AFError> {
+           return networkService.editProfile(request: request)
+               .eraseToAnyPublisher()
+       }
 }
-

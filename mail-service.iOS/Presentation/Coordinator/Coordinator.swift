@@ -38,17 +38,23 @@ enum FullScreenCover: String, Identifiable {
     }
 }
 
-class Coordinator: ObservableObject, CoordinatorProtocol {
+final class Coordinator: ObservableObject, CoordinatorProtocol {
     @Published var path = NavigationPath()
     @Published var fullScreenCover: FullScreenCover?
     @Published var themesViewModel: ThemesViewModel?
+
     private var dataStore: [Page: Any] = [:]
-    
+
     func push(_ page: Page) {
         path.append(page)
     }
     
     func replace(with page: Page) {
+        path = NavigationPath()
+        path.append(page)
+    }
+    
+    func replaceWithRoot(_ page: Page) {
         path = NavigationPath()
         path.append(page)
     }

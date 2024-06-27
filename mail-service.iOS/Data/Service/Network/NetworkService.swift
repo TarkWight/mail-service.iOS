@@ -159,6 +159,31 @@ final class NetworkService {
             })
             .eraseToAnyPublisher()
     }
+  
+    func editProfile(request: EditProfileRequest) -> AnyPublisher<Void, AFError> {
+          guard let token = token else {
+              return Fail(error: AFError.invalidURL(url: ""))
+                  .eraseToAnyPublisher()
+          }
+          
+          let url = baseURL + "edit"
+          let headers: HTTPHeaders = [
+              "Authorization": "Bearer \(token)",
+              "Content-Type": "application/json"
+          ]
+          
+          return AF.request(url, method: .put, parameters: request, encoder: JSONParameterEncoder.default, headers: headers)
+              .publishData()
+              .tryMap { response in
+                  guard response.response?.statusCode == 200 else {
+                      throw AFError.responseValidationFailed(reason: .unacceptableStatusCode(code: response.response?.statusCode ?? 0))
+                  }
+                  return ()
+              }
+              .mapError { $0 as! AFError }
+              .eraseToAnyPublisher()
+      }
+    
     
     // MARK: - Chats
     func fetchChats() -> AnyPublisher<[getChat], AFError> {
@@ -228,28 +253,8 @@ final class NetworkService {
               }
               .eraseToAnyPublisher()
       }
-//    func fetchThemes(interlocutor: String) -> AnyPublisher<[String], AFError> {
-//        guard let token = token else {
-//            fatalError("Token is not set")
-//        }
-//        
-//        let url = baseURL + "get_themes_of_chat/\(interlocutor)"
-//        let headers: HTTPHeaders = [
-//            "Authorization": "Bearer \(token)"
-//        ]
-//        
-//        return AF.request(url, headers: headers)
-//            .validate()
-//            .publishDecodable(type: ThemesResponse.self)
-//            .tryMap { response in
-//                guard let value = response.value else {
-//                    throw AFError.responseValidationFailed(reason: .dataFileNil)
-//                }
-//                return value.themes
-//            }
-//            .mapError { $0 as! AFError }
-//            .eraseToAnyPublisher()
-//    }
+
+    
 }
 
 struct RegistrationResponse: Decodable {

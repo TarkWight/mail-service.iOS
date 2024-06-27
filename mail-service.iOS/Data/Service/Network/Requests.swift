@@ -38,3 +38,23 @@ struct ChatsResponse: Decodable {
 struct ThemesResponse: Decodable {
     let themes: [String]
 }
+
+// MARK: - Settings
+
+struct EditProfileRequest: Encodable {
+    var name: String
+    var surname: String
+    var birthday: String
+    var gender: String
+    var phoneNum: String?
+    var password: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case name = "Имя"
+        case surname = "Фамилия"
+        case birthday = "Дата рождения"
+        case gender = "Пол"
+        case phoneNum = "Номер_телефона"
+        case password = "Пароль"
+    }
+}
