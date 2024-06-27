@@ -254,7 +254,17 @@ final class NetworkService {
               .eraseToAnyPublisher()
       }
 
-    
+    func fetchMessages(interlocutor: String, theme: String) -> AnyPublisher<MessagesResponse, Error> {
+            guard let url = URL(string: "http://etbx.ru:7070/get_messages_by_theme/\(interlocutor)/\(theme)") else {
+                return Fail(error: URLError(.badURL))
+                    .eraseToAnyPublisher()
+            }
+
+            return URLSession.shared.dataTaskPublisher(for: url)
+                .map { $0.data }
+                .decode(type: MessagesResponse.self, decoder: JSONDecoder())
+                .eraseToAnyPublisher()
+        }
 }
 
 struct RegistrationResponse: Decodable {

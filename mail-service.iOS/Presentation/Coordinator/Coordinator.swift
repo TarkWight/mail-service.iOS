@@ -15,7 +15,7 @@ protocol CoordinatorProtocol {
 }
 
 enum Page: String, Identifiable {
-    case registration, authorization, tabBar, profile, chatList, createChat, themes
+    case registration, authorization, tabBar, profile, chatList, createChat, themes, messages
 
     var id: String {
         self.rawValue
@@ -42,6 +42,7 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
     @Published var path = NavigationPath()
     @Published var fullScreenCover: FullScreenCover?
     @Published var themesViewModel: ThemesViewModel?
+    @Published var messagesViewModel: MessagesViewModel?
 
     private var dataStore: [Page: Any] = [:]
 
@@ -74,6 +75,10 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
     func inject(viewModel: ThemesViewModel) {
         self.themesViewModel = viewModel
     }
+
+    func inject(viewModel: MessagesViewModel) {
+        self.messagesViewModel = viewModel
+    }
     
     @ViewBuilder
     func build(page: Page) -> some View {
@@ -93,6 +98,10 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
         case .themes:
             if let viewModel = themesViewModel {
                 ThemesView().environmentObject(viewModel)
+            }
+        case .messages:
+            if let viewModel = messagesViewModel {
+                MessagesView(viewModel: viewModel)
             }
         }
     }

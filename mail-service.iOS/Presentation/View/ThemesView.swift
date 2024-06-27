@@ -14,9 +14,9 @@ struct ThemesView: View {
     var body: some View {
         List(viewModel.themes, id: \.self) { theme in
             Button(action: {
-                // Push Themes page via Coordinator
-                // coordinator.push(.themes)
-                print("ThemesView is tapped")
+                let messagesViewModel = MessagesViewModel(interlocutor: viewModel.interlocutor, theme: theme)
+                coordinator.inject(viewModel: messagesViewModel)
+                coordinator.push(.messages)
             }) {
                 Text(theme)
             }

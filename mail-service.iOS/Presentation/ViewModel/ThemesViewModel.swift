@@ -12,7 +12,7 @@ class ThemesViewModel: ObservableObject {
     @Published var errorMessage: String?
     private let chatService = ChatUseCase()
     private var cancellables = Set<AnyCancellable>()
-    private var interlocutor: String
+    let interlocutor: String
     
     init(interlocutor: String) {
         self.interlocutor = interlocutor
