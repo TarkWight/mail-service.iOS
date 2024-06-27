@@ -32,3 +32,18 @@ final class UserUseCase {
                 .eraseToAnyPublisher()
         }
 }
+
+final class ChatUseCase {
+//    private var cancellables = Set<AnyCancellable>()
+    private let networkService = NetworkService.shared
+    
+    func fetchChats() -> AnyPublisher<[getChat], AFError> {
+        networkService.fetchChats()
+    }
+
+    func createChat(chat: CreateChatModel) -> AnyPublisher<Void, AFError> {
+        let parameters = CreateChatRequest(theme: chat.theme, body: chat.body, receiver: chat.receiver)
+        return networkService.createChat(parameters: parameters)
+    }
+}
+

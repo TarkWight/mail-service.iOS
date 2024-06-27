@@ -57,6 +57,7 @@ final class NetworkService {
             .eraseToAnyPublisher()
     }
     
+    
     func register(user: UserRegistrationModel) -> AnyPublisher<String, Error> {
         let registrationRequest = RegistrationRequest(
             name: user.name,
@@ -125,24 +126,6 @@ final class NetworkService {
             .eraseToAnyPublisher()
     }
     
-    //    func fetchUserProfile() -> AnyPublisher<UserProfile, AFError> {
-    //        guard let token = token else {
-    //            fatalError("Token is not set")
-    //        }
-    //
-    //        let url = baseURL + "users/me"
-    //        let headers: HTTPHeaders = [
-    //            "Authorization": "Bearer \(token)"
-    //        ]
-    //        print("Sending fetch user profile request to \(url) with headers: \(headers)")
-    //
-    //        return AF.request(url, headers: headers)
-    //            .validate()
-    //            .publishDecodable(type: UserProfile.self)
-    //            .value()
-    //            .eraseToAnyPublisher()
-    //    }
-    
     func fetchUserProfile() -> AnyPublisher<UserProfile, AFError> {
         guard let token = token else {
             fatalError("Token is not set")
@@ -175,7 +158,37 @@ final class NetworkService {
             .eraseToAnyPublisher()
     }
 
-    
+    func fetchChats() -> AnyPublisher<[getChat], AFError> {
+            guard let token = token else {
+                fatalError("Token is not set")
+            }
+            
+            let url = baseURL + "get_my_chats"
+            let headers: HTTPHeaders = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+            return AF.request(url, headers: headers)
+                .validate()
+                .publishDecodable(type: ChatsResponse.self)
+                .tryMap { response in
+                    guard let value = response.value else {
+                        throw AFError.responseValidationFailed(reason: .dataFileNil)
+                    }
+                    return value.chats.enumerated().map { getChat(id: $0.offset, email: $0.element) }
+                }
+                .handleEvents(receiveOutput: { chats in
+                    print("Received chats from server: \(chats)")
+                })
+                .mapError { $0 as! AFError }
+                .eraseToAnyPublisher()
+        }
+
+    func createChat(parameters: CreateChatRequest) -> AnyPublisher<Void, AFError> {
+           return requestWithToken(endpoint: "send", method: .post, parameters: parameters)
+               .map { _ in () }
+               .eraseToAnyPublisher()
+       }
 }
 
 struct RegistrationResponse: Decodable {

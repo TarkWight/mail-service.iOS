@@ -17,7 +17,7 @@ struct MainTabView: View {
                 }
                 .tag(0)
             
-            Text("Chats")
+            ChatView()
                 .tabItem {
                     Image(systemName: "message")
                     Text("Chats")
